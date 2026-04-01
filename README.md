@@ -12,7 +12,7 @@ Team Members:
 </br>
 <ul>
   <li>KHALID ALMEQHIM – 221120284</li>
-  <li>Belal Sabbagh – 221120282</li>
+  <li>BELAL SABBAGH – 221120282</li>
   <li>NAIF ALREDEYAN – 221120320</li>
   <li>FAISAL ALNASHWAN - 221120472</li>
 </ul>
@@ -47,7 +47,7 @@ An AI-driven Decision Support System (IDSS) designed to help businesses predict 
 <li>It provides localized accessibility by offering a professional analytics interface that fully supports both Arabic and English languages.</li>
 </ul>
 
-<h3> Technologies Used</h3>
+<h2> Technologies Used</h2>
     <ul class="tech-list">
         <li><span class="tech-name">Python</span> - Core logic and data processing.</li>
         <li><span class="tech-name">Streamlit</span> - Interactive user interface and dashboards.</li>
@@ -56,3 +56,7 @@ An AI-driven Decision Support System (IDSS) designed to help businesses predict 
         <li><span class="tech-name">Pandas</span> - Data manipulation and analysis.</li>
         <li><span class="tech-name">Plotly</span> - Interactive data visualization and charts.</li>
     </ul>
+<h2>Getting Started</h2>
+We recommend VS Code or PyCharm for development. To install the prerequistes:
+
+1. Download our latest release below.
