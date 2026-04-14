@@ -19,7 +19,7 @@ Team Members:
 
 <h2>Team Contribution</h2>
 <br>
-<p><i><b></b>The project was completed through joint teamwork, where all members collaborated naturally across the different stages of development. Tasks were shared, discussed, and implemented together, which means the final outcome reflects the collective effort of the entire team. Each member contributed to the project as part of a unified team working toward one goal.</i></b></p>
+<p><i><b>The project was completed through joint teamwork, where all members collaborated naturally across the different stages of development. Tasks were shared, discussed, and implemented together, which means the final outcome reflects the collective effort of the entire team. Each member contributed to the project as part of a unified team working toward one goal.</i></b></p>
 
 <br>
 <h2>Project Description</h2>
@@ -62,6 +62,22 @@ We recommend VS Code or PyCharm for development. To install the prerequisites:
 
 ```bash
 # 1. Download our latest release below.
+```
+```bash
 # 2. Extract the .rar file, then run the 'start.py' file using your preferred development environment.
-# 3. Download the latest requirements.txt below.
+```
 
+```bash
+# 3. Download the latest requirements.txt below.
+```
+
+
+```bash
+# 4. Install the requirements.txt by running 'pip install' inside the terminal.
+```
+
+```bash
+# 4. Install the requirements.txt by running 'pip install' inside the terminal.
+```
+
+<h2>Running the chatbot</h2>
