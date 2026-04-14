@@ -34,7 +34,6 @@ An AI-driven Decision Support System (IDSS) designed to help businesses predict 
 <li>Full Arabic Support: Provides a localized experience with an Arabic interface, reports, and visual analytics, making it accessible for users in the region.</li>
 <li>Interactive Dashboards: Features user-friendly visualizations and KPIs created with Streamlit to help managers interpret complex data easily.</li>
 <li>Data Management: Includes a complete pipeline for uploading, cleaning, and processing CSV/Excel sales records.</li>
-<li>Data Management: Includes a complete pipeline for uploading, cleaning, and processing CSV/Excel sales records.</li>
 <li>Exportable Reports: Allows users to download forecast results and analytical insights in PDF or Excel formats.<?
 </ul>
 
@@ -58,5 +57,10 @@ An AI-driven Decision Support System (IDSS) designed to help businesses predict 
     </ul>
 <h2>Getting Started</h2>
 We recommend VS Code or PyCharm for development. To install the prerequistes:
+ـ 
+```bash
+# 1. Download our latest release below.
 
-1. Download our latest release below.
+
+
+
