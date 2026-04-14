@@ -36,9 +36,7 @@ Team Members:
 <li>Exportable Reports: Allows users to download forecast results and analytical insights in PDF or Excel formats.</li>
 </ul>
 
-<br>
 <h2>Benefits of the System</h2>
-</br>
 <ul>
 <li>The system empowers managers to make evidence-based strategic decisions by replacing intuition with accurate, AI-driven data analysis.</li>
 <li>It enables proactive business planning by identifying future seasonal trends and demand shifts before they occur.</li>
@@ -46,7 +44,6 @@ Team Members:
 <li>It provides localized accessibility by offering a professional analytics interface that fully supports both Arabic and English languages.</li>
 </ul>
 <hr>
-
 <h3>🛠️ Technologies Used</h3>
 
 | Python | Streamlit | Prophet | PyCharm | Pandas | Plotly |
