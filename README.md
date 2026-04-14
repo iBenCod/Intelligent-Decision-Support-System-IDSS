@@ -70,7 +70,7 @@ We recommend VS Code or PyCharm for development. To install the prerequisites:
 ```bash
 # 3. Download the latest requirements.txt below.
 ```
-
+https://github.com/iBenCod/Intelligent-Decision-Support-System-IDSS/blob/main/requirements.txt
 
 ```bash
 # 4. Install the requirements.txt by running 'pip install' inside the terminal.
