@@ -58,9 +58,10 @@ An AI-driven Decision Support System (IDSS) designed to help businesses predict 
 <h2>Getting Started</h2>
 We recommend VS Code or PyCharm for development. To install the prerequistes:
 ـ 
+We recommend VS Code or PyCharm for development. To install the prerequisites:
+
 ```bash
 # 1. Download our latest release below.
-
-
-
+# 2. Extract the .rar file, then run the 'start.py' file using your preferred development environment.
+# 3. Download the latest requirements.txt below.
 
