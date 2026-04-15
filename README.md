@@ -56,10 +56,10 @@ Team Members:
 
 We recommend VS Code or PyCharm for development. To install the prerequistes:
 ـ 
-```bash
+```javascript
 # 1. Download our latest release below.
 ```
-```bash
+```javascript
 # 2. Extract the .rar file, then run the 'start.py' file using your preferred development environment.
 ```
 
