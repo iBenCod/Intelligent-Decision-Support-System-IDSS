@@ -63,22 +63,28 @@ We recommend VS Code or PyCharm for development. To install the prerequistes:
 # 2. Extract the .rar file, then run the 'start.py' file using your preferred development environment.
 ```
 
-```bash
+```javascript
 # 3. Download the latest requirements.txt below.
 ```
+
 https://github.com/iBenCod/Intelligent-Decision-Support-System-IDSS/blob/main/requirements.txt
 
-```bash
+```javascript
 # 4. Install the requirements.txt by running 'pip install' inside the terminal.
 ```
-
-```bash
-# 4. Install the requirements.txt by running 'pip install' inside the terminal.
-```
-
-<h2>Running Intelligent-Decision-Support-System-IDSS</h2>
-
-```bash
+## Running the Intelligent-Decision-Support-System-IDSS
+```javascript
 # 5. Simply run the streamlit program through the terminal using 'streamlit run (your-file-path/start.py)'.
 ```
+**Streamlit**[^1] is a trademark of **Snowflake Inc.**[^2]
+**LangChain**[^3] is a trademark of **LangChain, Inc.**
+**Gemini™**[^4] is a trademark of **Google LLC**[^5].
+**PyCharm**[^6] and the **PyCharm logo** are trademarks of **JetBrains s.r.o**[^7]
 
+[^1]: https://streamlit.io/
+[^2]: https://www.snowflake.com/en/
+[^3]:https://www.langchain.com/
+[^4]: https://gemini.google.com/
+[^5]: https://www.google.com/
+[^6]: https://www.jetbrains.com/pycharm/
+[^7]: https://www.jetbrains.com/
