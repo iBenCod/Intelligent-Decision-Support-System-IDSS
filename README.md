@@ -80,6 +80,7 @@ https://github.com/iBenCod/Intelligent-Decision-Support-System-IDSS/blob/main/re
 **LangChain**[^3] is a trademark of **LangChain, Inc.**
 **Gemini™**[^4] is a trademark of **Google LLC**[^5].
 **PyCharm**[^6] and the **PyCharm logo** are trademarks of **JetBrains s.r.o**[^7]
+**Python**[^8] and the **Python logo** are trademarks of **Python Software Foundation (PSF).**[^9]
 
 [^1]: https://streamlit.io/
 [^2]: https://www.snowflake.com/en/
@@ -88,3 +89,6 @@ https://github.com/iBenCod/Intelligent-Decision-Support-System-IDSS/blob/main/re
 [^5]: https://www.google.com/
 [^6]: https://www.jetbrains.com/pycharm/
 [^7]: https://www.jetbrains.com/
+[^8]:https://www.python.org/psf-landing/
+[^9]: https://www.python.org/downloads/release/python-3120/
+
