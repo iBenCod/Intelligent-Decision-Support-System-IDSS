@@ -78,17 +78,15 @@ https://github.com/iBenCod/Intelligent-Decision-Support-System-IDSS/blob/main/re
 ```
 **Streamlit**[^1] is a trademark of **Snowflake Inc.**[^2]
 **LangChain**[^3] is a trademark of **LangChain, Inc.**
-**Gemini™**[^4] is a trademark of **Google LLC**[^5].
-**PyCharm**[^6] and the **PyCharm logo** are trademarks of **JetBrains s.r.o**[^7]
-**Python**[^8] and the **Python logo** are trademarks of **Python Software Foundation (PSF).**[^9]
+**PyCharm**[^4] and the **PyCharm logo** are trademarks of **JetBrains s.r.o**[^5]
+**Python**[^6] and the **Python logo** are trademarks of **Python Software Foundation (PSF).**[^7]
 
 [^1]: https://streamlit.io/
 [^2]: https://www.snowflake.com/en/
 [^3]:https://www.langchain.com/
-[^4]: https://gemini.google.com/
-[^5]: https://www.google.com/
-[^6]: https://www.jetbrains.com/pycharm/
-[^7]: https://www.jetbrains.com/
-[^8]:https://www.python.org/psf-landing/
-[^9]: https://www.python.org/downloads/release/python-3120/
+[^4]:https://pycharm-community-edition.en.softonic.com/
+[^5]: https://www.jetbrains.com/\
+[^6]: https://www.python.org/downloads/release/python-3120/
+[^7]:https://www.python.org/psf-landing/
+
 
