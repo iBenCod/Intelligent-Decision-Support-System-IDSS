@@ -23,86 +23,119 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- Custom CSS for Professional Dashboard ---
+# --- Custom CSS for Professional Dashboard (Enhanced Version) ---
 st.markdown("""
 <style>
-    /* Main container */
-    .main .block-container {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+    /* استيراد خط احترافي */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    html, body, [class*="css"]  {
+        font-family: 'Inter', sans-serif;
     }
 
-    /* Cards styling */
+    /*  */
+    .main .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        background-color: #f8fafc; /* */
+    }
+
+    /*  (Metric Cards)  Flowchart */
     .metric-card {
-        background: white;
-        border-radius: 10px;
-        padding: 15px;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px;
+        border-left: 5px solid #3b82f6; /* خط جانبي أزرق يشبه لون مربعات المخطط */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: transform 0.2s ease;
+    }
+
+    .metric-card:hover {
+        transform: translateY(-5px); /*  */
     }
 
     .metric-card h3 {
-        font-size: 12px;
-        font-weight: 600;
-        color: #4a5568;
-        margin-bottom: 5px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #64748b;
+        margin-bottom: 8px;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
     }
 
     .metric-card .value {
-        font-size: 24px;
-        font-weight: 700;
-        color: #2d3748;
-        margin-bottom: 5px;
+        font-size: 28px;
+        font-weight: 800;
+        color: #1e293b;
     }
 
-    .metric-card .change {
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-    }
-
-    .positive {
-        color: #10b981;
-    }
-
-    .negative {
-        color: #ef4444;
-    }
-
-    /* Tabs styling */
+    /*(Tabs)  */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 10px;
+        gap: 15px;
+        background-color: transparent;
     }
 
     .stTabs [data-baseweb="tab"] {
-        border-radius: 8px 8px 0 0;
-        padding: 10px 20px;
+        height: 45px;
+        background-color: #f1f5f9;
+        border-radius: 8px !important;
+        padding: 0px 25px !important;
+        font-weight: 600;
+        color: #475569;
+        border: none !important;
     }
 
-    /* Custom titles */
+    .stTabs [aria-selected="true"] {
+        background-color: #3b82f6 !important; /*  */
+        color: white !important;
+    }
+
+    /* العناوين الجانبية (Section Titles) */
     .section-title {
-        font-size: 24px;
-        font-weight: 700;
-        color: #2d3748;
-        margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #e2e8f0;
+        font-size: 22px;
+        font-weight: 800;
+        color: #0f172a;
+        margin: 25px 0 15px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
-    /* Better chart containers */
-    .plot-container {
-        background: white;
-        padding: 15px;
-        border-radius: 10px;
-        border: 1px solid #e2e8f0;
-        margin-bottom: 20px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    .section-title::before {
+        content: "";
+        width: 4px;
+        height: 24px;
+        background: #3b82f6;
+        border-radius: 2px;
     }
+
+    /* (Chart Containers) */
+    .plot-container {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* */
+    .stButton>button {
+        width: 100%;
+        border-radius: 8px;
+        background-color: #6355D4;
+        color: white;
+        font-weight: 600;
+        border: none;
+        padding: 10px;
+        transition: all 0.3s;
+    }
+
+    .stButton>button:hover {
+        background-color: #2563eb;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
 </style>
 """, unsafe_allow_html=True)
-
 # --- Multilingual Support ---
 translations = {
     "en": {
@@ -119,25 +152,115 @@ translations = {
         "data_analysis": "Data Analysis",
         "forecasting": "Forecasting",
         # New Translations added below:
+        "configure_columns": "Configure Data Columns",
+        "date_col": "Date Column",
+        "date_help": "Select the column containing dates",
+        "suggested_date_cols": "Suggested date columns",
+        "sales_col": "Sales Column",
+        "sales_help": "Select the column containing sales values",
+        "suggested_sales_cols": "Suggested sales columns",
         "eda_title": "📈 Exploratory Data Analysis",
         "summary_stats": "📊 Summary Statistics",
         "total_sales": "Total Sales",
+        "all_time":"All time",
         "avg_daily_sales": "Average Daily Sales",
+        "per_day": "Per day",
         "peak_sales": "Peak Sales Day",
         "sales_var": "Sales Variability",
+        "Coefficient of Variation":"📊 Coefficient of Variation",
         "sales_trends": "📈 Sales Trends Over Time",
         "view_by": "View by",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly",
+        "quarterly": "Quarterly",
+        "yearly": "Yearly",
         "show_trend": "Show Trend Line",
-        "seasonality": "🌊 Seasonality Analysis",
-        "distribution": "📊 Sales Distribution Analysis",
-        "outliers": "🔍 Outlier Detection",
-        "growth": "📈 Growth Analysis",
-        "data_quality": "📋 Data Quality Report",
-        "insights": "💡 Key Insights & Recommendations",
-        "forecast_title": "🔮 Sales Forecasting",
+        "seasonality": "Seasonality Analysis",
+        "avg_sales_by_month": "Average Sales by Month",
+        "avg_sales_by_day": "Average Sales by Day of Week",
+        "avg_sales_label": "Average Sales ($)",
+        "month": "Month",
+        "day": "Day",
+        "sales_distribution_histogram": "Sales Distribution Histogram",
+        "daily_sales": "Daily Sales",
+        "frequency": "Frequency",
+        "distribution_statistics": "📊 Sales Distribution Analysis",
+        "skewness": "Skewness",
+        "kurtosis": "Kurtosis",
+        "iqr": "Iqr ",
+        "monthly_sales_distribution": "Monthly Sales Distribution",
+        "sales_label": "Sales Label",
+        "month": "Month",
+        "percentile":  "📊 Percentile Analysis",
+        "outlier_detection": "🔍Outlier Detection",
+        "lower_bound": "Lower Bound",
+        "upper_bound": "Upper Bound",
+        "outliers_found": "Outliers Found",
+        "normal_sales": "Normal Sales",
+        "potential_outliers": "Potential Outliers",
+        "lower_bound": "Lower Bound",
+        "upper_bound": "Upper Bound",
+        "outliers_chart_title": "Sales Data with Outliers Highlighted",
+        "date": "Date",
+        "sales_label": "Sales ($)",
+        "outlier_details": "View Outlier Details",
+        "no_outliers": "No outliers detected using the IQR method! ✅",
+        "growth_analysis": "📈 Growth Analysis",
+        "monthly_sales": "Monthly Sales",
+        "growth_rate": "Growth Rate %",
+        "monthly_sales_growth_title": "Monthly Sales with Growth Rate",
+        "month": "Month",
+        "sales_label": "Sales ($)",
+        "growth_rate_label": "Growth Rate (%)",
+        "data_quality_report": "Data Quality Report",
+        "date_range": "Date Range",
+        "total_days": "Total Days",
+        "missing_days": "Missing Days",
+        "min_daily_sales": "Min Daily Sales",
+        "median_daily_sales": "Median Daily Sales",
+        "max_daily_sales": "Max Daily Sales",
+        "data_completeness": "Data Completeness",
+        "zero_sales_days": "Zero Sales Days",
+        "best_month": "Best Month",
+        "insights_recommendations": "💡 Key Insights & Recommendations",
+        "strong_seasonality": "**Strong seasonality detected**: Best month is {best_month}, worst is {worst_month}",
+        "clear_trend": "**Clear {trend_dir} trend**: Sales are {trend_dir} by {trend_pct:.1f}% comparing first and last 30 days",
+        "outliers_insight": "**{count} outliers detected**: Consider investigating these unusual sales days",
+        "high_variability": "**High sales variability**: Consider implementing more stable inventory management",
+        "low_variability": "**Low sales variability**: Good for stable forecasting and inventory planning",
+"forecasting_recommendations": "Forecasting Recommendations",
+    "based_on_analysis": "Based on your data analysis:",
+    "insufficient_data": "⚠️ Insufficient data: Collect more historical data (at least 30 days) for reliable forecasting",
+    "prophet_recommended": "✅ Prophet recommended: Strong seasonality detected - Prophet handles seasonal patterns well",
+    "lstm_recommended": "⚠️ Consider LSTM with preprocessing: Many outliers detected - LSTM can handle irregularities",
+    "both_models_viable": "✅ Both models viable: Data shows moderate seasonality and good consistency",
+    "next_steps": "Next steps:",
+    "step_1": "1. Review the data quality report above",
+    "step_2": "2. Note any patterns or anomalies",
+    "step_3": "3. Select forecasting model based on recommendations",
+    "step_4": "4. Configure forecast parameters",
+    "step_5": "5. Generate and validate predictions",
+        "sales_forecasting": "Sales Forecasting",
+        "forecast_info": "Based on your data analysis, here are forecasting recommendations.",
+        "model": "Model",
+        "prophet": "Prophet",
+        "lstm": "LSTM",
+        "model_help": "Select forecasting model based on data characteristics",
+        "prophet_msg": "✅ Prophet selected - Best for seasonal patterns",
+        "lstm_msg": "📊 LSTM selected - Good for complex patterns",
+        "forecast_days": "Forecast Days",
+        "forecast_help": "Number of future days to forecast",
+        "historical_days": "Historical days",
+        "advanced_settings": "Advanced Settings",
+        "seasonality_mode": "Seasonality Mode",
+        "additive": "Additive",
+        "multiplicative": "Multiplicative",
+        "seasonality_help": "Additive: constant seasonality, Multiplicative: increasing seasonality",
         "export_btn": "📥 Export Forecast to CSV",
-"additional_cols": "➕ Additional Analysis Columns",
-"select_additional": "Select additional columns for analysis (optional):"
+        "additional_cols": "➕ Additional Analysis Columns",
+        "select_additional": "Select additional columns for analysis (optional):",
+        "footer_text": "© 2025 Sales Analytics Dashboard | Developed by Almaarefa University Students CSIS Department"
 
     },
     "ar": {
@@ -154,25 +277,116 @@ translations = {
         "data_analysis": "تحليل البيانات",
         "forecasting": "التنبؤ",
         # الترجمات الجديدة:
+        "configure_columns": "تكوين أعمدة البيانات",
+        "date_col": "عمود التاريخ",
+        "date_help": "اختر العمود الذي يحتوي على التواريخ",
+        "suggested_date_cols": "الأعمدة المقترحة للتاريخ",
+        "sales_col": "عمود المبيعات",
+        "sales_help": "اختر العمود الذي يحتوي على قيم المبيعات",
+        "suggested_sales_cols": "الأعمدة المقترحة للمبيعات",
         "eda_title": "📈 تحليل البيانات الاستكشافي",
         "summary_stats": "📊 الإحصائيات العامة",
         "total_sales": "إجمالي المبيعات",
+        "all_time":"كل الاوقات",
         "avg_daily_sales": "متوسط المبيعات اليومية",
+        "per_day": "كل يوم",
         "peak_sales": "أعلى يوم مبيعات",
         "sales_var": "تباين المبيعات",
+        "Coefficient of Variation": "📊 معامل التباين",
         "sales_trends": "📈 اتجاهات المبيعات بمرور الوقت",
         "view_by": "عرض حسب",
+        "daily": "يومي",
+        "weekly": "اسبوعي",
+        "monthly": "شهري",
+        "quarterly": "ربع سنوية",
+        "yearly": "سنة",
         "show_trend": "إظهار خط الاتجاه",
-        "seasonality": "🌊 تحليل الموسمية",
-        "distribution": "📊 تحليل توزيع المبيعات",
-        "outliers": "🔍 الكشف عن القيم الشاذة",
-        "growth": "📈 تحليل النمو",
-        "data_quality": "📋 تقرير جودة البيانات",
-        "insights": "💡 رؤى وتوصيات رئيسية",
-        "forecast_title": "🔮 التنبؤ بالمبيعات",
+        "seasonality": "تحليل الموسمية",
+        "avg_sales_by_month": "متوسط المبيعات حسب الشهر",
+        "avg_sales_by_day": "متوسط المبيعات حسب أيام الأسبوع",
+        "avg_sales_label": "متوسط المبيعات ($)",
+        "month": "الشهر",
+        "day": "اليوم",
+        "sales_distribution_histogram": "رسم بياني لتوزيع المبيعات",
+        "daily_sales": "المبيعات اليومية",
+        "frequency": "التكرار",
+        "distribution_statistics": "📊 تحليل توزيع المبيعات",
+        "skewness": "الالتواء",
+        "kurtosis": "التفلطح",
+        "iqr": "المدى الربيعي",
+        "monthly_sales_distribution": "توزيع المبيعات الشهرية",
+        "sales_label": "تسمية المبيعات",
+        "month": "شهر",
+        "percentile": "📊التحليل النسب المئوية",
+        "outlier_detection": "كشف القيم الشاذة",
+        "lower_bound": "الحد الأدنى",
+        "upper_bound": "الحد الأعلى",
+        "outliers_found": "عدد القيم الشاذة",
+        "normal_sales": "المبيعات الطبيعية",
+        "potential_outliers": "القيم الشاذة المحتملة",
+        "lower_bound": "الحد الأدنى",
+        "upper_bound": "الحد الأعلى",
+        "outliers_chart_title": "بيانات المبيعات مع إبراز القيم الشاذة",
+        "date": "التاريخ",
+        "sales_label": "المبيعات ($)",
+        "outlier_details": "عرض تفاصيل القيم الشاذة",
+        "no_outliers": "لا توجد قيم شاذة باستخدام طريقة IQR! ✅",
+        "growth_analysis": "📈 تحليل النمو ",
+        "monthly_sales": "المبيعات الشهرية",
+        "growth_rate": "معدل النمو %",
+        "monthly_sales_growth_title": "المبيعات الشهرية مع معدل النمو",
+        "month": "الشهر",
+        "sales_label": "المبيعات ($)",
+        "growth_rate_label": "معدل النمو (%)",
+        "data_quality_report": "تقرير جودة البيانات",
+        "date_range": "نطاق التاريخ",
+        "total_days": "إجمالي الأيام",
+        "missing_days": "الأيام المفقودة",
+        "min_daily_sales": "أقل مبيعات يومية",
+        "median_daily_sales": "وسيط المبيعات اليومية",
+        "max_daily_sales": "أعلى مبيعات يومية",
+        "data_completeness": "اكتمال البيانات",
+        "zero_sales_days": "أيام بدون مبيعات",
+        "best_month": "أفضل شهر",
+        "insights_recommendations": "الرؤى والتوصيات الرئيسية",
+        "strong_seasonality": "**تم اكتشاف موسمية قوية**: أفضل شهر هو {best_month}، وأسوأ شهر هو {worst_month}",
+        "clear_trend": "**اتجاه واضح {trend_dir}**: المبيعات في اتجاه {trend_dir} بنسبة {trend_pct:.1f}% عند مقارنة أول وآخر 30 يوم",
+        "outliers_insight": "**تم اكتشاف {count} قيم شاذة**: يُنصح بالتحقق من أيام المبيعات غير الطبيعية",
+        "high_variability": "**تذبذب مرتفع في المبيعات**: يُنصح بتحسين إدارة المخزون لتحقيق استقرار أكبر",
+        "low_variability": "**تذبذب منخفض في المبيعات**: مناسب للتخطيط والتنبؤ المستقر بالمخزون",
+        "forecasting_recommendations": "توصيات التنبؤ",
+        "based_on_analysis": "بناءً على تحليل بياناتك:",
+        "insufficient_data": "⚠️ بيانات غير كافية: يرجى جمع بيانات تاريخية أكثر (30 يوم على الأقل) لتنبؤ موثوق",
+        "prophet_recommended": "✅ يُوصى باستخدام Prophet: تم اكتشاف موسمية قوية - Prophet مناسب للأنماط الموسمية",
+        "lstm_recommended": "⚠️ يُنصح باستخدام LSTM مع معالجة مسبقة: تم اكتشاف العديد من القيم الشاذة",
+        "both_models_viable": "✅ كلا النموذجين مناسب: البيانات تظهر استقرار وموسمية معتدلة",
+        "next_steps": "الخطوات التالية:",
+        "step_1": "1. مراجعة تقرير جودة البيانات أعلاه",
+        "step_2": "2. ملاحظة الأنماط أو القيم غير الطبيعية",
+        "step_3": "3. اختيار نموذج التنبؤ المناسب",
+        "step_4": "4. ضبط إعدادات التنبؤ",
+        "step_5": "5. إنشاء النتائج والتحقق منها",
+        "sales_forecasting": "التنبؤ بالمبيعات",
+        "forecast_info": "بناءً على تحليل البيانات، إليك توصيات التنبؤ.",
+        "model": "النموذج",
+        "prophet": "Prophet",
+        "lstm": "LSTM",
+        "model_help": "اختر نموذج التنبؤ حسب طبيعة البيانات",
+        "prophet_msg": "✅ تم اختيار Prophet - الأفضل للأنماط الموسمية",
+        "lstm_msg": "📊 تم اختياsر LSTM - مناسب للأنماط المعقدة",
+        "forecast_days": "عدد أيام التنبؤ",
+        "forecast_help": "عدد الأيام المستقبلية المراد التنبؤ بها",
+        "historical_days": "الأيام التاريخية",
+        "advanced_settings": "الإعدادات المتقدمة",
+        "seasonality_mode": "نمط الموسمية",
+        "additive": "إضافي (Additive)",
+        "multiplicative": "ضربي (Multiplicative)",
+        "seasonality_help": "إضافي: موسمية ثابتة، ضربي: موسمية تتغير مع حجم البيانات",
         "export_btn": "📥 تصدير التوقعات (CSV)",
-"additional_cols": "➕ أعمدة تحليل إضافية",
-"select_additional": "اختر أعمدة إضافية للتحليل (اختياري)"
+        "additional_cols": "➕ أعمدة تحليل إضافية",
+        "select_additional": "اختر أعمدة إضافية للتحليل (اختياري)",
+        "footer_text": "© 2025 لوحة تحليلات المبيعات | تم تطويره من قبل طلاب جامعة المعرفة - قسم علوم الحاسب ونظم المعلومات"
+
     }
 }
 
@@ -218,7 +432,7 @@ if lang == "ar":
     """, unsafe_allow_html=True)
 # --- Data Upload ---
 uploaded_file = st.file_uploader(t["upload"], type=["csv", "xlsx"],
-                                 help="Upload your sales data in CSV or Excel format")
+                                 help="")
 
 if uploaded_file is not None:
     try:
@@ -255,11 +469,13 @@ if uploaded_file is not None:
             df_raw.columns = cols
 
         # Column selection
-        st.subheader("⚙️ Configure Data Columns")
+        st.subheader(f"⚙️ {t['configure_columns']}")
+
         cols = df_raw.columns.tolist()
 
         # Auto-detect date columns
         date_candidates = []
+
         for col in cols:
             if df_raw[col].dtype == 'object':
                 try:
@@ -268,6 +484,7 @@ if uploaded_file is not None:
                 except:
                     if any(term in col.lower() for term in ['date', 'time', 'day', 'month', 'year']):
                         date_candidates.append(col)
+
             elif 'date' in col.lower() or 'time' in col.lower():
                 date_candidates.append(col)
 
@@ -278,36 +495,44 @@ if uploaded_file is not None:
                 numeric_candidates.append(col)
 
         col1, col2 = st.columns(2)
+
         with col1:
             if date_candidates:
                 default_date = date_candidates[0]
-                st.info(f"Suggested date columns: {', '.join(date_candidates[:3])}")
+                st.info(f"{t['suggested_date_cols']}: {', '.join(date_candidates[:3])}")
             else:
                 default_date = cols[0]
+
             date_col = st.selectbox(
                 t["date_col"],
                 cols,
                 index=cols.index(default_date) if default_date in cols else 0,
-                help="Select the column containing dates"
+                help=t["date_help"]
             )
 
         with col2:
             if numeric_candidates:
                 # Prioritize columns with sales-related names
                 sales_keywords = ['sales', 'amount', 'price', 'quantity', 'qty', 'total', 'revenue', 'profit', 'value']
-                prioritized = [col for col in numeric_candidates if
-                               any(keyword in col.lower() for keyword in sales_keywords)]
+
+                prioritized = [
+                    col for col in numeric_candidates
+                    if any(keyword in col.lower() for keyword in sales_keywords)
+                ]
+
                 default_sales = prioritized[0] if prioritized else numeric_candidates[0]
-                st.info(f"Suggested sales columns: {', '.join(numeric_candidates[:3])}")
+
+                st.info(f"{t['suggested_sales_cols']}: {', '.join(numeric_candidates[:3])}")
+
             else:
                 default_sales = cols[1] if len(cols) > 1 else cols[0]
+
             sales_col = st.selectbox(
                 t["sales_col"],
                 cols,
                 index=cols.index(default_sales) if default_sales in cols else 0,
-                help="Select the column containing sales values"
+                help=t["sales_help"]
             )
-
         # Additional analysis columns
         with st.expander(t["additional_cols"]):
             st.write(t["select_additional"])
@@ -371,64 +596,77 @@ if "df_daily" in st.session_state:
 
     with tab1:
         # =============== EXPLORATORY DATA ANALYSIS ===============
-        st.markdown('<div class="section-title">📈 Exploratory Data Analysis</div>', unsafe_allow_html=True)
+        st.markdown(
+            f'<div class="section-title">{t["eda_title"]}</div>',
+            unsafe_allow_html=True
+        )
 
         # Summary Statistics Cards
-        st.subheader("📊 Summary Statistics")
+        st.subheader(t["summary_stats"])
 
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.markdown("""
+            total_sales = df_daily['y'].sum()
+
+            st.markdown(f"""
             <div class="metric-card">
-                <h3>Total Sales</h3>
-                <div class="value">${:,.2f}</div>
-                <div class="change positive">📈 All time</div>
+                <h3>{t["total_sales"]}</h3>
+                <div class="value">${total_sales:,.2f}</div>
+                <div class="change positive">📈 {t["all_time"]}</div>
             </div>
-            """.format(df_daily['y'].sum()), unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
 
         with col2:
             avg_sales = df_daily['y'].mean()
-            st.markdown("""
+
+            st.markdown(f"""
             <div class="metric-card">
-                <h3>Average Daily Sales</h3>
-                <div class="value">${:,.2f}</div>
-                <div class="change">📊 Per day</div>
+                <h3>{t["avg_daily_sales"]}</h3>
+                <div class="value">${avg_sales:,.2f}</div>
+                <div class="change">📊 {t["per_day"]}</div>
             </div>
-            """.format(avg_sales), unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
 
         with col3:
             max_sales = df_daily['y'].max()
             max_date = df_daily.loc[df_daily['y'].idxmax(), 'ds']
-            st.markdown("""
+
+            st.markdown(f"""
             <div class="metric-card">
-                <h3>Peak Sales Day</h3>
-                <div class="value">${:,.2f}</div>
-                <div class="change">📅 {}</div>
+                <h3>{t["peak_sales"]}</h3>
+                <div class="value">${max_sales:,.2f}</div>
+                <div class="change">📅 {max_date.strftime('%Y-%m-%d')}</div>
             </div>
-            """.format(max_sales, max_date.strftime('%Y-%m-%d')), unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
 
         with col4:
             std_sales = df_daily['y'].std()
             cv = (std_sales / avg_sales) * 100 if avg_sales > 0 else 0
-            st.markdown("""
+
+            st.markdown(f"""
             <div class="metric-card">
-                <h3>Sales Variability</h3>
-                <div class="value">{:.1f}%</div>
-                <div class="change">📊 Coefficient of Variation</div>
+                <h3>{t["sales_var"]}</h3>
+                <div class="value">{cv:.1f}%</div>
+                <div class="change"> {t["Coefficient of Variation"]}</div>
             </div>
-            """.format(cv), unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
 
         # =============== TIME SERIES VISUALIZATION ===============
-        st.subheader("📈 Sales Trends Over Time")
+        st.subheader(f"{t["sales_trends"]}")
 
         col1, col2 = st.columns([3, 1])
         with col1:
             time_granularity = st.selectbox(
-                "View by",
-                ["Daily", "Weekly", "Monthly", "Quarterly", "Yearly"],
+                t["view_by"],
+                [
+                    t["daily"],
+                    t["weekly"],
+                    t["monthly"],
+                    t["quarterly"],
+                    t["yearly"],
+                ],
                 index=0
             )
-
         with col2:
             show_trend = st.checkbox("Show Trend Line", value=True)
 
@@ -487,7 +725,7 @@ if "df_daily" in st.session_state:
         st.plotly_chart(fig, use_container_width=True)
 
         # =============== SEASONALITY ANALYSIS ===============
-        st.subheader(f"🌊 Seasonality Analysis")
+        st.subheader(f"📊 {t['seasonality']}")
 
         col1, col2 = st.columns(2)
 
@@ -496,13 +734,22 @@ if "df_daily" in st.session_state:
             df_monthly = df_clean.copy()
             df_monthly['month'] = df_monthly[date_col_name].dt.month
             df_monthly['month_name'] = df_monthly[date_col_name].dt.strftime('%B')
+
             monthly_avg = df_monthly.groupby(['month', 'month_name'])[sales_col_name].mean().reset_index()
             monthly_avg = monthly_avg.sort_values('month')
 
-            fig_monthly = px.bar(monthly_avg, x='month_name', y=sales_col_name,
-                                 title=f'Average Sales by Month',
-                                 labels={sales_col_name: 'Average Sales ($)', 'month_name': 'Month'},
-                                 color_discrete_sequence=['#636efa'])
+            fig_monthly = px.bar(
+                monthly_avg,
+                x='month_name',
+                y=sales_col_name,
+                title=t["avg_sales_by_month"],
+                labels={
+                    sales_col_name: t["avg_sales_label"],
+                    "month_name": t["month"]
+                },
+                color_discrete_sequence=['#636efa']
+            )
+
             fig_monthly.update_layout(height=300)
             st.plotly_chart(fig_monthly, use_container_width=True)
 
@@ -511,47 +758,66 @@ if "df_daily" in st.session_state:
             df_weekly = df_clean.copy()
             df_weekly['day_of_week'] = df_weekly[date_col_name].dt.day_name()
             df_weekly['day_num'] = df_weekly[date_col_name].dt.dayofweek
+
             day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
             weekly_avg = df_weekly.groupby(['day_num', 'day_of_week'])[sales_col_name].mean().reset_index()
             weekly_avg = weekly_avg.sort_values('day_num')
 
-            fig_weekly = px.bar(weekly_avg, x='day_of_week', y=sales_col_name,
-                                title='Average Sales by Day of Week',
-                                labels={sales_col_name: 'Average Sales ($)', 'day_of_week': 'Day'},
-                                color_discrete_sequence=['#ef553b'])
+            fig_weekly = px.bar(
+                weekly_avg,
+                x='day_of_week',
+                y=sales_col_name,
+                title=t["avg_sales_by_day"],
+                labels={
+                    sales_col_name: t["avg_sales_label"],
+                    "day_of_week": t["day"]
+                },
+                color_discrete_sequence=['#ef553b']
+            )
+
             fig_weekly.update_layout(height=300)
             st.plotly_chart(fig_weekly, use_container_width=True)
-
         # =============== DISTRIBUTION ANALYSIS ===============
-        st.subheader(f"📊 Sales Distribution Analysis")
+        st.subheader(f"{t['distribution_statistics']}")
 
         col1, col2 = st.columns(2)
 
         with col1:
             # Histogram with KDE
-            fig_hist = px.histogram(df_daily, x='y',
-                                    title='Sales Distribution Histogram',
-                                    labels={'y': 'Daily Sales ($)', 'count': 'Frequency'},
-                                    nbins=30,
-                                    marginal='box',
-                                    opacity=0.7)
+            fig_hist = px.histogram(
+                df_daily,
+                x='y',
+                title=t["sales_distribution_histogram"],
+                labels={
+                    'y': t["daily_sales"],
+                    'count': t["frequency"]
+                },
+                nbins=30,
+                marginal='box',
+                opacity=0.7
+            )
+
             fig_hist.update_layout(height=350)
             st.plotly_chart(fig_hist, use_container_width=True)
 
             # Distribution statistics
-            with st.expander("📈 Distribution Statistics"):
+            with st.expander(f"{t["distribution_statistics"]}"):
                 skewness = stats.skew(df_daily['y'].dropna())
                 kurtosis = stats.kurtosis(df_daily['y'].dropna())
 
                 stat_col1, stat_col2, stat_col3 = st.columns(3)
+
                 with stat_col1:
-                    st.metric("Skewness", f"{skewness:.3f}")
+                    st.metric(t["skewness"], f"{skewness:.3f}")
+
                 with stat_col2:
-                    st.metric("Kurtosis", f"{kurtosis:.3f}")
+                    st.metric(t["kurtosis"], f"{kurtosis:.3f}")
+
                 with stat_col3:
                     q1, q3 = np.percentile(df_daily['y'].dropna(), [25, 75])
                     iqr = q3 - q1
-                    st.metric("IQR", f"${iqr:.2f}")
+                    st.metric(t["iqr"], f"${iqr:.2f}")
 
         with col2:
             # Box plot by month
@@ -559,10 +825,18 @@ if "df_daily" in st.session_state:
             df_box['month'] = df_box[date_col_name].dt.strftime('%Y-%m')
             df_box = df_box.sort_values('month')
 
-            fig_box = px.box(df_box, x='month', y=sales_col_name,
-                             title='Monthly Sales Distribution',
-                             labels={sales_col_name: 'Sales ($)', 'month': 'Month'},
-                             color_discrete_sequence=['#00cc96'])
+            fig_box = px.box(
+                df_box,
+                x='month',
+                y=sales_col_name,
+                title=t["monthly_sales_distribution"],
+                labels={
+                    sales_col_name: t["sales_label"],
+                    "month": t["month"]
+                },
+                color_discrete_sequence=['#00cc96']
+            )
+
             fig_box.update_layout(
                 height=350,
                 xaxis_tickangle=45,
@@ -570,20 +844,29 @@ if "df_daily" in st.session_state:
             )
             st.plotly_chart(fig_box, use_container_width=True)
 
-            # Percentile analysis
-            with st.expander("📊 Percentile Analysis"):
-                percentiles = [10, 25, 50, 75, 90, 95, 99]
-                percentile_values = np.percentile(df_daily['y'].dropna(), percentiles)
+            # Section title (same style as yours)
+            st.markdown(
+                f'<div class="section-title">{t["percentile"]}</div>',
+                unsafe_allow_html=True
+            )
 
-                for p, val in zip(percentiles, percentile_values):
-                    col_left, col_right = st.columns([1, 3])
-                    with col_left:
-                        st.write(f"{p}th:")
-                    with col_right:
-                        st.write(f"${val:,.2f}")
+            # Percentile content
+            percentiles = [10, 25, 50, 75, 90, 95, 99]
+            percentile_values = np.percentile(df_daily['y'].dropna(), percentiles)
+
+            for p, val in zip(percentiles, percentile_values):
+                st.markdown(
+                    f"""
+                    <div class="metric-card">
+                        <span>{p}{t.get("th_suffix", "th")}</span>
+                        <span style="float:right;">${val:,.2f}</span>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
 
         # =============== OUTLIER DETECTION ===============
-        st.subheader("🔍 Outlier Detection")
+        st.subheader(f"🔍 {t['outlier_detection']}")
 
         # Calculate outliers using IQR method
         Q1 = df_daily['y'].quantile(0.25)
@@ -595,12 +878,15 @@ if "df_daily" in st.session_state:
         outliers = df_daily[(df_daily['y'] < lower_bound) | (df_daily['y'] > upper_bound)]
 
         col1, col2, col3 = st.columns(3)
+
         with col1:
-            st.metric("Lower Bound", f"${lower_bound:,.2f}")
+            st.metric(t["lower_bound"], f"${lower_bound:,.2f}")
+
         with col2:
-            st.metric("Upper Bound", f"${upper_bound:,.2f}")
+            st.metric(t["upper_bound"], f"${upper_bound:,.2f}")
+
         with col3:
-            st.metric("Outliers Found", len(outliers))
+            st.metric(t["outliers_found"], len(outliers))
 
         if len(outliers) > 0:
             # Plot with outliers highlighted
@@ -608,11 +894,12 @@ if "df_daily" in st.session_state:
 
             # Normal points
             normal_points = df_daily[(df_daily['y'] >= lower_bound) & (df_daily['y'] <= upper_bound)]
+
             fig_outliers.add_trace(go.Scatter(
                 x=normal_points['ds'],
                 y=normal_points['y'],
                 mode='markers',
-                name='Normal Sales',
+                name=t["normal_sales"],
                 marker=dict(color='blue', size=6, opacity=0.6)
             ))
 
@@ -621,36 +908,47 @@ if "df_daily" in st.session_state:
                 x=outliers['ds'],
                 y=outliers['y'],
                 mode='markers',
-                name='Potential Outliers',
+                name=t["potential_outliers"],
                 marker=dict(color='red', size=10, symbol='diamond')
             ))
 
             # Add threshold lines
-            fig_outliers.add_hline(y=lower_bound, line_dash="dash", line_color="orange",
-                                   annotation_text="Lower Bound", annotation_position="bottom right")
-            fig_outliers.add_hline(y=upper_bound, line_dash="dash", line_color="orange",
-                                   annotation_text="Upper Bound", annotation_position="top right")
+            fig_outliers.add_hline(
+                y=lower_bound,
+                line_dash="dash",
+                line_color="orange",
+                annotation_text=t["lower_bound"],
+                annotation_position="bottom right"
+            )
+
+            fig_outliers.add_hline(
+                y=upper_bound,
+                line_dash="dash",
+                line_color="orange",
+                annotation_text=t["upper_bound"],
+                annotation_position="top right"
+            )
 
             fig_outliers.update_layout(
-                title='Sales Data with Outliers Highlighted',
-                xaxis_title='Date',
-                yaxis_title='Sales ($)',
+                title=t["outliers_chart_title"],
+                xaxis_title=t["date"],
+                yaxis_title=t["sales_label"],
                 height=400,
                 showlegend=True
             )
+
             st.plotly_chart(fig_outliers, use_container_width=True)
 
             # Show outlier table
-            with st.expander("📋 View Outlier Details"):
+            with st.expander(t["outlier_details"]):
                 outlier_table = outliers.copy()
                 outlier_table['ds'] = outlier_table['ds'].dt.strftime('%Y-%m-%d')
                 outlier_table['y'] = outlier_table['y'].round(2)
                 st.dataframe(outlier_table, use_container_width=True)
         else:
-            st.success("✅ No outliers detected using the IQR method!")
-
+            st.success(t["no_outliers"])
         # =============== GROWTH ANALYSIS ===============
-        st.subheader("📈 Growth Analysis")
+        st.subheader(f"{t['growth_analysis']}")
 
         # Calculate month-over-month growth
         df_growth = df_clean.copy()
@@ -665,25 +963,23 @@ if "df_daily" in st.session_state:
         fig_growth.add_trace(go.Bar(
             x=monthly_sales['year_month'],
             y=monthly_sales[sales_col_name],
-            name='Monthly Sales',
+            name=t["monthly_sales"],
             marker_color='#636efa'
         ))
-
         # Growth line on secondary axis
         fig_growth.add_trace(go.Scatter(
             x=monthly_sales['year_month'],
             y=monthly_sales['growth'],
-            name='Growth Rate %',
+            name=t["growth_rate"],
             yaxis='y2',
             line=dict(color='#ff7f0e', width=3)
         ))
-
         fig_growth.update_layout(
-            title='Monthly Sales with Growth Rate',
-            xaxis_title='Month',
-            yaxis_title='Sales ($)',
+            title=t["monthly_sales_growth_title"],
+            xaxis_title=t["month"],
+            yaxis_title=t["sales_label"],
             yaxis2=dict(
-                title='Growth Rate (%)',
+                title=t["growth_rate_label"],
                 overlaying='y',
                 side='right'
             ),
@@ -694,99 +990,117 @@ if "df_daily" in st.session_state:
         st.plotly_chart(fig_growth, use_container_width=True)
 
         # =============== DATA QUALITY REPORT ===============
-        st.subheader("📋 Data Quality Report")
+        st.subheader(f"📋 {t['data_quality_report']}")
 
         report_col1, report_col2, report_col3 = st.columns(3)
 
         with report_col1:
-            st.metric("Date Range",
+            st.metric(t["date_range"],
                       f"{df_daily['ds'].min().strftime('%Y-%m-%d')} to {df_daily['ds'].max().strftime('%Y-%m-%d')}")
-            st.metric("Total Days", len(df_daily))
-            st.metric("Missing Days",
+
+            st.metric(t["total_days"], len(df_daily))
+
+            st.metric(t["missing_days"],
                       (df_daily['ds'].max() - df_daily['ds'].min()).days + 1 - len(df_daily))
 
         with report_col2:
-            st.metric("Min Daily Sales", f"${df_daily['y'].min():,.2f}")
-            st.metric("Median Daily Sales", f"${df_daily['y'].median():,.2f}")
-            st.metric("Max Daily Sales", f"${df_daily['y'].max():,.2f}")
+            st.metric(t["min_daily_sales"], f"${df_daily['y'].min():,.2f}")
+            st.metric(t["median_daily_sales"], f"${df_daily['y'].median():,.2f}")
+            st.metric(t["max_daily_sales"], f"${df_daily['y'].max():,.2f}")
 
         with report_col3:
-            st.metric("Data Completeness",
+            st.metric(t["data_completeness"],
                       f"{(1 - df_daily['y'].isnull().sum() / len(df_daily)) * 100:.1f}%")
-            st.metric("Zero Sales Days",
+
+            st.metric(t["zero_sales_days"],
                       len(df_daily[df_daily['y'] == 0]))
-            st.metric("Best Month",
+
+            st.metric(t["best_month"],
                       df_clean[date_col_name].dt.strftime('%Y-%m').value_counts().idxmax())
 
         # =============== INSIGHTS AND RECOMMENDATIONS ===============
-        st.subheader("💡 Key Insights & Recommendations")
+        st.subheader(f"💡 {t['insights_recommendations']}")
 
         insights = []
 
         # Check for seasonality
         monthly_std = monthly_avg[sales_col_name].std()
         monthly_mean = monthly_avg[sales_col_name].mean()
+
         if monthly_std > monthly_mean * 0.3:  # Strong seasonality
             best_month = monthly_avg.loc[monthly_avg[sales_col_name].idxmax(), 'month_name']
             worst_month = monthly_avg.loc[monthly_avg[sales_col_name].idxmin(), 'month_name']
-            insights.append(f"**Strong seasonality detected**: Best month is {best_month}, worst is {worst_month}")
 
+            insights.append(
+                t["strong_seasonality"].format(
+                    best_month=best_month,
+                    worst_month=worst_month
+                )
+            )
         # Check for trend
         if len(df_daily) > 30:
             recent_mean = df_daily.tail(30)['y'].mean()
             earlier_mean = df_daily.head(30)['y'].mean()
+
             trend_pct = ((recent_mean - earlier_mean) / earlier_mean) * 100 if earlier_mean > 0 else 0
+
             if abs(trend_pct) > 10:
                 trend_dir = "increasing" if trend_pct > 0 else "decreasing"
-                insights.append(
-                    f"**Clear {trend_dir} trend**: Sales {trend_dir} by {abs(trend_pct):.1f}% comparing first and last 30 days")
 
+                insights.append(
+                    t["clear_trend"].format(
+                        trend_dir=trend_dir,
+                        trend_pct=abs(trend_pct)
+                    )
+                )
         # Check for outliers
         if len(outliers) > 0:
-            insights.append(f"**{len(outliers)} outliers detected**: Consider investigating these unusual sales days")
+            insights.append(
+                t["outliers_insight"].format(
+                    count=len(outliers)
+                )
+            )
 
         # Check for variability
         if cv > 50:
-            insights.append("**High sales variability**: Consider implementing more stable inventory management")
+            insights.append(t["high_variability"])
         elif cv < 10:
-            insights.append("**Low sales variability**: Good for stable forecasting and inventory planning")
-
+            insights.append(t["low_variability"])
         # Display insights
         for insight in insights:
             st.info(insight)
 
         # Forecasting recommendations
-        st.subheader("🎯 Forecasting Recommendations")
+        st.subheader(f"🎯 {t['forecasting_recommendations']}")
 
         rec_col1, rec_col2 = st.columns(2)
 
         with rec_col1:
-            st.markdown("**Based on your data analysis:**")
+            st.markdown(f"**{t['based_on_analysis']}**")
+
             if len(df_daily) < 30:
-                st.error(
-                    "⚠️ **Insufficient data**: Collect more historical data (at least 30 days) for reliable forecasting")
+                st.error(t["insufficient_data"])
             elif monthly_std > monthly_mean * 0.3:
-                st.success(
-                    "✅ **Prophet recommended**: Strong seasonality detected - Prophet handles seasonal patterns well")
+                st.success(t["prophet_recommended"])
             elif len(outliers) > len(df_daily) * 0.1:
-                st.warning(
-                    "⚠️ **Consider LSTM with preprocessing**: Many outliers detected - LSTM can handle irregularities")
+                st.warning(t["lstm_recommended"])
             else:
-                st.success("✅ **Both models viable**: Data shows moderate seasonality and good consistency")
+                st.success(t["both_models_viable"])
 
         with rec_col2:
-            st.markdown("**Next steps:**")
-            st.write("1. Review the data quality report above")
-            st.write("2. Note any patterns or anomalies")
-            st.write("3. Select forecasting model based on recommendations")
-            st.write("4. Configure forecast parameters")
-            st.write("5. Generate and validate predictions")
-
-    with tab2:
+            st.markdown(f"**{t['next_steps']}**")
+            st.write(t["step_1"])
+            st.write(t["step_2"])
+            st.write(t["step_3"])
+            st.write(t["step_4"])
+            st.write(t["step_5"])
         # =============== FORECASTING SECTION ===============
-        st.markdown('<div class="section-title">🔮 Sales Forecasting</div>', unsafe_allow_html=True)
+        st.markdown(
+            f'<div class="section-title">🔮 {t["sales_forecasting"]}</div>',
+            unsafe_allow_html=True
+        )
 
-        st.info("💡 Based on your data analysis, here are forecasting recommendations.")
+        st.info(f"💡 {t['forecast_info']}")
 
         # Forecasting configuration
         col1, col2 = st.columns(2)
@@ -795,31 +1109,37 @@ if "df_daily" in st.session_state:
             model_choice = st.selectbox(
                 t["model"],
                 [t["prophet"], t["lstm"]],
-                help="Select forecasting model based on data characteristics"
+                help=t["model_help"]
             )
 
             if model_choice == t["prophet"]:
-                st.success("✅ Prophet selected - Best for seasonal patterns")
+                st.success(t["prophet_msg"])
             else:
-                st.info("📊 LSTM selected - Good for complex patterns")
+                st.info(t["lstm_msg"])
 
         with col2:
+            # safe fallback if df_daily not ready
+            historical_len = len(df_daily) if "df_daily" in locals() else 30
+
             forecast_days = st.number_input(
                 t["forecast_days"],
                 min_value=1,
                 max_value=365,
-                value=max(1, min(30, len(df_daily) // 3)),  # <- ensure value >= 1
-                help="Number of future days to forecast"
+                value=max(1, min(30, historical_len // 3)),
+                help=t["forecast_help"]
             )
-            st.caption(f"Historical days: {len(df_daily)}, Forecast days: {forecast_days}")
 
+            st.caption(
+                f"{t['historical_days']}: {historical_len}, {t['forecast_days']}: {forecast_days}"
+            )
         # Advanced settings expander
-        with st.expander("⚙️ Advanced Settings"):
+        with st.expander(f"⚙️ {t['advanced_settings']}"):
+
             if model_choice == t["prophet"]:
                 seasonality_mode = st.selectbox(
-                    "Seasonality Mode",
-                    ["additive", "multiplicative"],
-                    help="Additive: constant seasonality, Multiplicative: increasing seasonality"
+                    t["seasonality_mode"],
+                    [t["additive"], t["multiplicative"]],
+                    help=t["seasonality_help"]
                 )
                 changepoint_prior = st.slider(
                     "Flexibility",
@@ -955,7 +1275,6 @@ if "df_daily" in st.session_state:
                 if 'yhat' in forecast_df.columns:
                     st.metric("Average Forecast", f"${forecast_df['yhat'].mean():,.2f}")
                     st.metric("Total Forecast", f"${forecast_df['yhat'].sum():,.2f}")
-
 # Footer
 st.markdown("---")
-st.caption("© 2025 Sales Analytics Dashboard | Developed by Almaarefa University Students CSIS Department")
+st.markdown(f"**{t['footer_text']}**")
