@@ -59,6 +59,8 @@ We recommend VS Code or PyCharm for development. To install the prerequistes:
 ```javascript
 # 1. Download our latest release below.
 ```
+https://github.com/iBenCod/Intelligent-Decision-Support-System-IDSS/releases/tag/v1.0
+
 ```javascript
 # 2. Extract the .rar file, then run the 'start.py' file using your preferred development environment.
 ```
